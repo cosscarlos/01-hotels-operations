@@ -8,11 +8,10 @@ public class Room {
 
 
 
-    public Room(String numberOfBeds, double price, boolean occupied, boolean dirty) {
+    public Room(String numberOfBeds, double price) {
         this.numberOfBeds = numberOfBeds;
         this.price = price;
-        this.occupied = occupied;
-        this.dirty = dirty;
+
 
     }
 
@@ -24,27 +23,27 @@ public class Room {
         this.numberOfBeds = numberOfBeds;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public Boolean isOccupied() {
+    public boolean isOccupied() {
         return occupied;
     }
 
-    public void setOccupied(Boolean occupied) {
+    public void setOccupied(boolean occupied) {
         this.occupied = occupied;
     }
 
-    public Boolean isDirty() {
+    public boolean isDirty() {
         return dirty;
     }
 
-    public void setDirty(Boolean dirty) {
+    public void setDirty(boolean dirty) {
         this.dirty = dirty;
     }
 
