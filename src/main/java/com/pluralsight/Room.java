@@ -47,7 +47,7 @@ public class Room {
         this.dirty = dirty;
     }
 
-    public boolean isAvailable() {
+    public boolean isAvailable() { // derived method
         return (!this.occupied && !this.dirty);
     }
 
