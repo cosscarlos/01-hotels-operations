@@ -8,8 +8,12 @@ public class Room {
     private Boolean available;
 
 
-    public Room(String numberOfBeds, Double price, Boolean occupied, Boolean dirty, Boolean available){
-
+    public Room(String numberOfBeds, Double price, Boolean occupied, Boolean dirty, Boolean available) {
+        this.numberOfBeds = numberOfBeds;
+        this.price = price;
+        this.occupied = occupied;
+        this.dirty = dirty;
+        this.available = available;
     }
 
     public String getNumberOfBeds() {
