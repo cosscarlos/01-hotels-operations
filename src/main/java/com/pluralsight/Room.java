@@ -8,50 +8,41 @@ public class Room {
 
 
 
-    public Room(String numberOfBeds, double price) {
+    public Room(int numberOfBeds, double price, boolean isOccupied, boolean isDirty) {
         this.numberOfBeds = numberOfBeds;
         this.price = price;
+        this.isOccupied = isOccupied;
+        this.isDirty = isDirty;
 
 
     }
 
-    public String getNumberOfBeds() {
+    public int getNumberOfBeds() {
         return numberOfBeds;
     }
 
-    public void setNumberOfBeds(String numberOfBeds) {
-        this.numberOfBeds = numberOfBeds;
-    }
+
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+
 
     public boolean isOccupied() {
-        return occupied;
+        return isOccupied;
     }
 
-    public void setOccupied(boolean occupied) {
-        this.occupied = occupied;
-    }
+
 
     public boolean isDirty() {
-        return dirty;
+        return isDirty;
     }
 
-    public void setDirty(boolean dirty) {
-        this.dirty = dirty;
-    }
+
 
     public boolean isAvailable() { // derived method
-        if(!this.occupied && !this.dirty){
-            return false;
-        }
-        return true;
+        return !this.isOccupied() && !this.isDirty();
     }
 
 
