@@ -18,7 +18,7 @@ public class Reservation {
     }
 
     public void setRoomType(String roomType) {
-        this.roomType = roomType;
+        this.roomType = roomType.trim().toLowerCase();
     }
 
     public double getPrice() {
