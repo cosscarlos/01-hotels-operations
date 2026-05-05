@@ -45,6 +45,19 @@ public class Room {
         return !this.isOccupied() && !this.isDirty();
     }
 
+    //working on the exercise 2
+
+    public void checkIn(){
+       this.isOccupied = true;
+       this.isDirty = true;
+    }
+    public void checkOut(){
+        this.isOccupied = false;
+    }
+    public void cleanRoom(){
+        this.isDirty = false;
+    }
+
 
 }
 
