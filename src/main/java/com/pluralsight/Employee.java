@@ -6,6 +6,9 @@ public class Employee {
     private String department;
     private double payRate;
     private double hoursWorked;
+    // exercise 2
+    private int startTime;
+
 
     public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
         this.employeeId = employeeId;
@@ -42,5 +45,16 @@ public class Employee {
         double overtimePay = getOvertimeHours() * (payRate * 1.5);
         return regularPay + overtimePay;
     }
+
+    //working on exercise 2 here:
+    public void punchIn(int time){
+        this.startTime = time;
+    }
+    public void punchOut(int time){
+    int duration = time - this.startTime;
+    this.hoursWorked += duration;
+    this.startTime = 0;
+    }
+
 }
 
