@@ -1,5 +1,8 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class Employee {
     private int employeeId;
     private String name;
@@ -46,14 +49,26 @@ public class Employee {
         return regularPay + overtimePay;
     }
 
-    //working on exercise 2 here:
+    //working on exercise 2 and 3 here:
     public void punchIn(int time){
         this.startTime = time;
+    }
+    public void punchIn(){
+        LocalDateTime now = LocalDateTime.now();
+        int currentHour = now.getHour();
+
+        punchIn(currentHour);
     }
     public void punchOut(int time){
     int duration = time - this.startTime;
     this.hoursWorked += duration;
     this.startTime = 0;
+    }
+    public void punchOut(){
+        LocalDateTime now = LocalDateTime.now();
+        int currentHour = now.getHour();
+
+        punchIn(currentHour);
     }
 
 }
