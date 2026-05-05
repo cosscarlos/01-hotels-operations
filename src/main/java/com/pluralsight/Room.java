@@ -1,10 +1,10 @@
 package com.pluralsight;
 
 public class Room {
-    private String numberOfBeds;
+    private int numberOfBeds;
     private double price;
-    private boolean occupied;
-    private boolean dirty;
+    private boolean isOccupied;
+    private boolean isDirty;
 
 
 
@@ -48,7 +48,10 @@ public class Room {
     }
 
     public boolean isAvailable() { // derived method
-        return (!this.occupied && !this.dirty);
+        if(!this.occupied && !this.dirty){
+            return false;
+        }
+        return true;
     }
 
 

@@ -18,16 +18,22 @@ public class Employee {
         return hoursWorked;
     }
 
-
-
     public double getRegularHours() {
 
-        return Math.min(hoursWorked, 40);
+        if (this.hoursWorked <= 40){
+            return  this.hoursWorked;
+        }
+            return 40;
+
     }
 
     public double getOvertimeHours() {
 
-        return Math.max(0, hoursWorked - 40);
+        if (this.hoursWorked > 40){
+            return this.hoursWorked - 40;
+        }
+        return 0;
+
     }
 
     public double getTotalPay() {
