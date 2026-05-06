@@ -30,7 +30,7 @@ public class Hotel {
     }
 
     public boolean bookRoom (int numberOfRooms, boolean isSuite){
-    if (isSuite == true){
+    if (isSuite){
         if (numberOfRooms <= getAvailableSuites()){
             this.bookedSuites += numberOfRooms;
             return true;
