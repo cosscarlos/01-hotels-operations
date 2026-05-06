@@ -23,10 +23,10 @@ public class Hotel {
     }
 
     public int getAvailableSuites(){
-        return numberOfSuites - bookedSuites;
+        return this.numberOfSuites - this.bookedSuites;
     }
     public int getAvailableRooms(){
-        return numberOfRooms - bookedBasicRooms;
+        return this.numberOfRooms - this.bookedBasicRooms;
     }
 
     public boolean bookRoom (int numberOfRooms, boolean isSuite){

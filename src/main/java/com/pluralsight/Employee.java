@@ -1,81 +1,89 @@
 package com.pluralsight;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Employee {
     private int employeeId;
     private String name;
     private String department;
     private double payRate;
-    private double hoursWorked;
-    // exercise 2
-    private int startTime;
+    private int hoursWorked;
 
+    //just creating this for use when I punch out
+    private int punchInTime;
 
-    public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
+    public Employee(int employeeId, String name, String department, double payRate, int hoursWorked) {
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
         this.payRate = payRate;
         this.hoursWorked = hoursWorked;
     }
-    public double getHoursWorked() {
-        return hoursWorked;
+
+    public double getTotalPay(){
+        double regularPay = this.payRate * this.getRegularHours();
+        double overTimePay = this.payRate * this.getOvertimeHours() * 1.5;
+
+        return regularPay + overTimePay;
     }
 
-    public double getRegularHours() {
-
-        if (this.hoursWorked <= 40){
-            return  this.hoursWorked;
+    public int getRegularHours(){
+        if(this.hoursWorked <= 40){
+            return this.hoursWorked;
         }
-            return 40;
 
+        return 40;
     }
 
-    public double getOvertimeHours() {
-
-        if (this.hoursWorked > 40){
+    public int getOvertimeHours(){
+        if(this.hoursWorked > 40){
             return this.hoursWorked - 40;
         }
         return 0;
-
     }
 
-    public double getTotalPay() {
-
-        double regularPay = getRegularHours() * payRate;
-        double overtimePay = getOvertimeHours() * (payRate * 1.5);
-        return regularPay + overtimePay;
-    }
-
-    //working on exercise 2 and 3 here:
     public void punchIn(int time){
-        this.startTime = time;
+        this.punchInTime = time;
     }
-    public void punchIn(){
-        LocalDateTime now = LocalDateTime.now();
-        int currentHour = now.getHour();
 
-        punchIn(currentHour);
-    }
+    //figure out the difference between the punch out time
+    //and the punch in time and then add to the employees hours worked
     public void punchOut(int time){
-    int duration = time - this.startTime;
-    this.hoursWorked += duration;
-    this.startTime = 0;
-    }
-    public void punchOut(){
-        LocalDateTime now = LocalDateTime.now();
-        int currentHour = now.getHour();
+        //this gets us the hours worked based on the punch in and punch out times
+        int currentHoursWorked = time - this.punchInTime;
 
-        punchIn(currentHour);
+        //make sure the employee gets credit for the days work
+        this.hoursWorked += currentHoursWorked;
     }
 
     public void punchTimeCard(int time, String action){
-        if (action.equalsIgnoreCase("in")){
+        if(action.equalsIgnoreCase("in")){
+            this.punchIn(time);
+        }
 
+        if(action.equalsIgnoreCase("out")){
+            this.punchOut(time);
         }
     }
 
-}
+    public void punchTimeCard(int start, int endTime){
+        this.punchIn(start);
+        this.punchOut(endTime);
+    }
 
+    public void punchIn() {
+        //get the current time
+        LocalTime currentTime = LocalTime.now();
+        int currentHour = currentTime.getHour();
+        //punch in with the hour
+        this.punchIn(currentHour);
+    }
+
+    public void punchOut() {
+        //get the current time
+        LocalTime currentTime = LocalTime.now();
+        int currentHour = currentTime.getHour();
+        //punch in with the hour
+        this.punchOut(currentHour);
+    }
+}

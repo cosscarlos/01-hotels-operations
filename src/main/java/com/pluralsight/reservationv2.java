@@ -50,7 +50,7 @@ public class reservationv2 {
     }
 
     public double getReservationTotal(){
-        double total = this.numberOfNights() * this.getPrice();
+        double total = this.numberOfNights * this.getPrice();
 
         if(this.isWeekend()){
             total = total * 1.1;
