@@ -29,6 +29,20 @@ public class Hotel {
         return numberOfRooms - bookedBasicRooms;
     }
 
+    public boolean bookRoom (int numberOfRooms, boolean isSuite){
+    if (isSuite == true){
+        if (numberOfRooms <= getAvailableSuites()){
+            this.bookedSuites += numberOfRooms;
+            return true;
+        } else if (numberOfRooms <= getAvailableRooms()) {
+            this.bookedBasicRooms = numberOfRooms;
+            return true;
+        }
+
+    }
+        return false;
+    }
+
 
 
 }

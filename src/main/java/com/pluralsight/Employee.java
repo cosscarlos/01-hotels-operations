@@ -71,5 +71,11 @@ public class Employee {
         punchIn(currentHour);
     }
 
+    public void punchTimeCard(int time, String action){
+        if (action.equalsIgnoreCase("in")){
+
+        }
+    }
+
 }
 
